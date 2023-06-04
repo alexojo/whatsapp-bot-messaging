@@ -14,8 +14,8 @@ app.post("/api/send-message", async (req, res) => {
     const { groupId, message } = req.body;
     const group = await whatsappBot.client.getChatById(groupId);
 
-    const data = await OpenAIStream(message, 300, null);
-    group.sendMessage(data + new Date().toString());
+    const data = await OpenAIStream(message, 1000, null);
+    group.sendMessage(data);
 
     res.json({ status: "ok", message: "Message sent" });
   } catch (error) {
