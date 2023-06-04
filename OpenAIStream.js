@@ -1,14 +1,6 @@
-import {
-  ParsedEvent,
-  ReconnectInterval,
-  createParser,
-} from "eventsource-parser";
+const { createParser } = require("eventsource-parser");
 
-export const OpenAIModel = {
-  DAVINCI_TURBO: "gpt-3.5-turbo",
-};
-
-export const OpenAIStream = async (prompt, maxTokens, temperature) => {
+const OpenAIStream = async (prompt, maxTokens, temperature) => {
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
 
@@ -73,3 +65,5 @@ export const OpenAIStream = async (prompt, maxTokens, temperature) => {
 
   return stream;
 };
+
+module.exports = { OpenAIStream };
