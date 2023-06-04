@@ -9,7 +9,7 @@ class WhatsappClient {
     this.client = new Client({
       restartOnAuthFail: true,
       puppeteer: {
-        headless: false,
+        headless: true,
         args: [
           "--no-sandbox",
           "--disable-dev-shm-usage", // <-- add this one.
